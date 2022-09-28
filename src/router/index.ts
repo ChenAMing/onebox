@@ -8,6 +8,11 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView,
+      children: ['file', 'starred', 'share', 'recycled'].map((name) => ({
+        path: `/${name}`,
+        name,
+        component: () => import('@/views/MainView.vue'),
+      })),
     },
     {
       path: '/login',
