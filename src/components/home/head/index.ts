@@ -1,4 +1,5 @@
+import HeadTitle from './HeadTitle.vue'
 import HeadSearch from './HeadSearch.vue'
 import HeadUpload from './HeadUpload.vue'
 
-export { HeadSearch, HeadUpload }
+export { HeadTitle, HeadSearch, HeadUpload }

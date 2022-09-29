@@ -1,20 +1,28 @@
 <script lang="ts" setup>
-import { computed } from 'vue'
+import {
+  IconFile,
+  IconLog,
+  IconStarred,
+  IconShare,
+  IconRecycled,
+  IconSettings,
+} from '@/icons/nav'
 import { useRoute, useRouter } from 'vue-router'
+import { computed } from 'vue'
 
 const route = useRoute()
 const router = useRouter()
 
-const tabs = {
-  file: '全部文件',
-  log: '上传记录',
-  starred: '星标文件',
-  share: '我的分享',
-  recycled: '回收站',
-  settings: '设置',
-}
+type Tabs = 'file' | 'log' | 'starred' | 'share' | 'recycled' | 'settings'
 
-type Tabs = keyof typeof tabs
+const tabs = [
+  { text: '全部文件', router: 'file', icon: IconFile },
+  { text: '上传记录', router: 'log', icon: IconLog },
+  { text: '星标文件', router: 'starred', icon: IconStarred },
+  { text: '我的分享', router: 'share', icon: IconShare },
+  { text: '回收站', router: 'recycled', icon: IconRecycled },
+  { text: '设置', router: 'settings', icon: IconSettings },
+]
 
 function switchTab(routeName: Tabs) {
   router.push(routeName)
@@ -46,14 +54,19 @@ const widgetClass = computed(() => {
     ></span>
     <ul>
       <li
-        v-for="(text, routeName, index) in tabs"
+        v-for="(tab, index) in tabs"
         :key="index"
-        class="cursor-pointer h-10 mb-1 flex flex-row items-center hover:bg-[#eaeaea] rounded-sm text-black pl-6 relative"
-        :class="route.name === routeName ? 'bg-[#eaeaea] hover:bg-[#eaeaea]' : null"
-        @click="switchTab(routeName as Tabs)"
+        class="cursor-pointer h-10 mb-1 flex flex-row items-center hover:bg-[#eaeaea] rounded-sm text-black pl-4 relative"
+        :class="route.name === tab.router ? 'bg-[#eaeaea] hover:bg-[#eaeaea]' : null"
+        @click="switchTab(tab.router as Tabs)"
       >
-        <span class="text-sm">
-          {{ text }}
+        <component
+          :is="tab.icon"
+          :solid="route.name === tab.router"
+          :class="route.name === tab.router ? 'fill-[#0067c0]' : null"
+        ></component>
+        <span class="text-sm ml-6">
+          {{ tab.text }}
         </span>
       </li>
     </ul>

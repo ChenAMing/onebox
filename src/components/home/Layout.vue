@@ -19,7 +19,7 @@
   grid-template-areas:
     'nav head'
     'nav  body';
-  grid-template-rows: 45px 1fr;
+  grid-template-rows: 100px 1fr;
   grid-template-columns: 1fr 5fr;
 }
 
