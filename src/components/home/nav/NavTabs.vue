@@ -49,26 +49,25 @@ const widgetClass = computed(() => {
 <template>
   <div class="relative p-3">
     <span
-      class="absolute bg-[#0067c0] w-1 h-[32px] rounded-full z-10 left-4 transition-all"
+      class="inline-block absolute bg-[#0067c0] w-1 h-[32px] rounded-full left-4 transition-all"
       :class="widgetClass"
     ></span>
-    <ul>
-      <li
-        v-for="(tab, index) in tabs"
-        :key="index"
-        class="cursor-pointer h-10 mb-1 flex flex-row items-center hover:bg-[#eaeaea] rounded-sm text-black pl-4 relative"
-        :class="route.name === tab.router ? 'bg-[#eaeaea] hover:bg-[#eaeaea]' : null"
-        @click="switchTab(tab.router as Tabs)"
-      >
-        <component
-          :is="tab.icon"
-          :solid="route.name === tab.router"
-          :class="route.name === tab.router ? 'fill-[#0067c0]' : null"
-        ></component>
-        <span class="text-sm ml-6">
-          {{ tab.text }}
-        </span>
-      </li>
-    </ul>
+
+    <span
+      v-for="(tab, index) in tabs"
+      :key="index"
+      class="cursor-pointer h-10 mb-1 flex flex-row flex-nowrap items-center hover:bg-gray-100 rounded pl-4"
+      :class="route.name === tab.router ? 'bg-gray-100 hover:bg-gray-100' : null"
+      @click="switchTab(tab.router as Tabs)"
+    >
+      <component
+        :is="tab.icon"
+        :solid="route.name === tab.router"
+        :class="route.name === tab.router ? 'fill-[#0067c0]' : null"
+      ></component>
+      <span class="text-sm ml-6 flex-grow text-black">
+        {{ tab.text }}
+      </span>
+    </span>
   </div>
 </template>

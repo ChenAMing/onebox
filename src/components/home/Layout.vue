@@ -1,5 +1,7 @@
 <template>
-  <main id="home" class="grid absolute inset-0 bg-[#f3f3f3]">
+  <main id="home" class="grid absolute inset-0">
+    <div id="logo" class="border-r border-b border-slate-300"></div>
+
     <div id="nav" class="border-r border-slate-300">
       <slot name="nav"></slot>
     </div>
@@ -8,7 +10,7 @@
       <slot name="head"></slot>
     </div>
 
-    <div id="body" class="relative">
+    <div id="body" class="relative px-2 pt-2">
       <slot name="body"></slot>
     </div>
   </main>
@@ -17,9 +19,9 @@
 <style>
 #home {
   grid-template-areas:
-    'nav head'
+    'logo head'
     'nav  body';
-  grid-template-rows: 100px 1fr;
+  grid-template-rows: 45px 1fr;
   grid-template-columns: 1fr 5fr;
 }
 
