@@ -8,7 +8,7 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView,
-      children: ['file', 'starred', 'share', 'recycled', 'settings'].map((name) => ({
+      children: ['file', 'log', 'starred', 'share', 'recycled', 'settings'].map((name) => ({
         path: `/${name}`,
         name,
         component: () => import('@/views/MainView.vue'),

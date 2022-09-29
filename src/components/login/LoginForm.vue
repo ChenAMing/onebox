@@ -1,22 +1,23 @@
 <script lang="ts" setup>
+import { LibInput } from '@/lib'
 import { reactive } from 'vue'
 
 const user = reactive({
   act: '',
   pwd: '',
 })
-
-const cls = 'border border-slate-300'
 </script>
 
 <template>
-  <div class="h=20 w-40">
-    <label for="act">账号</label>
-    <input id="act" type="text" v-model="user.act" :class="cls" />
+  <div class="h=20 flex flex-col flex-nowrap border border-slate-300 p-10 w-[400px] bg-[#f3f3f3]">
+    <LibInput v-model:modelValue="user.act" />
 
-    <label for="pwd">密码</label>
-    <input id="pwd" type="password" v-model="user.pwd" :class="cls" />
+    <span class="h-8"></span>
 
-    <button type="button" class="border border-slate-300">登录</button>
+    <LibInput v-model:modelValue="user.pwd" />
+
+    <span class="h-8"></span>
+
+    <button type="button" class="bg-[#0067c0] text-white h-10 rounded-md">登录</button>
   </div>
 </template>
