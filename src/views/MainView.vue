@@ -18,5 +18,7 @@ type Route = keyof typeof componentOfRoute
 </script>
 
 <template>
-  <component :is="componentOfRoute[route.name as Route]" />
+  <div class="m-2 bg-white absolute top-0 left-0 right-0 h-96 border border-[#e5e5e5] shadow-md rounded-md">
+    <component :is="componentOfRoute[route.name as Route]" />
+  </div>
 </template>

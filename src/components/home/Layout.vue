@@ -8,7 +8,7 @@
       <slot name="head"></slot>
     </div>
 
-    <div id="body" class="">
+    <div id="body" class="relative">
       <slot name="body"></slot>
     </div>
   </main>
