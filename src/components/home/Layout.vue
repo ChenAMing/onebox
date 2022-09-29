@@ -1,10 +1,10 @@
 <template>
-  <main id="home" class="grid absolute inset-0">
-    <div id="nav" class="border-r border">
+  <main id="home" class="grid absolute inset-0 bg-[#f3f3f3]">
+    <div id="nav" class="border-r border-slate-300">
       <slot name="nav"></slot>
     </div>
 
-    <div id="head" class="">
+    <div id="head" class="border-b border-slate-300">
       <slot name="head"></slot>
     </div>
 
@@ -17,10 +17,10 @@
 <style>
 #home {
   grid-template-areas:
-    'head head'
+    'nav head'
     'nav  body';
   grid-template-rows: 45px 1fr;
-  grid-template-columns: 200px 1fr;
+  grid-template-columns: 1fr 5fr;
 }
 
 #nav {
