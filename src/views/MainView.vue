@@ -19,8 +19,6 @@ type Route = keyof typeof componentOfRoute
 
 <template>
   <div class="bg-white h-96 border border-gray-300 max-w-5xl m-auto">
-    <Transition enter-from-class="opacity-0 transition-all" leave-to-class="opacity-0">
-      <component :is="componentOfRoute[route.name as Route]" />
-    </Transition>
+    <component :is="componentOfRoute[route.name as Route]" />
   </div>
 </template>

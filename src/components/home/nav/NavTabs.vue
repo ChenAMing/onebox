@@ -31,25 +31,25 @@ function switchTab(routeName: Tabs) {
 const widgetClass = computed(() => {
   switch (route.name) {
     case 'file':
-      return 'top-[16px]'
+      return 'top-[12px]'
     case 'log':
-      return 'top-[60px]'
+      return 'top-[56px]'
     case 'starred':
-      return 'top-[104px]'
+      return 'top-[100px]'
     case 'share':
-      return 'top-[148px]'
+      return 'top-[144px]'
     case 'recycled':
-      return 'top-[192px]'
+      return 'top-[188px]'
     case 'settings':
-      return 'top-[236px]'
+      return 'top-[232px]'
   }
 })
 </script>
 
 <template>
-  <div class="relative p-3">
+  <div class="relative p-2">
     <span
-      class="inline-block absolute bg-[#0067c0] w-1 h-[32px] rounded-full left-4 transition-all"
+      class="inline-block absolute bg-[#0067c0] w-1 h-[32px] rounded-full left-3 transition-all"
       :class="widgetClass"
     ></span>
 
