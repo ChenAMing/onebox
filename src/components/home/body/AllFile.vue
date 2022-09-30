@@ -15,5 +15,7 @@ const checked = ref([])
 </script>
 
 <template>
+  <!-- TODO -->
+  <!-- <RouterView v-if="false" /> -->
   <LibFileList :head="head" :data="dir.listOfCurrentDir" v-model:modelValue="checked" />
 </template>

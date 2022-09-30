@@ -13,6 +13,19 @@ const router = createRouter({
         path: `/${name}`,
         name,
         component: () => import('@/views/MainView.vue'),
+        ...(() => {
+          if (name === 'file') {
+            return {
+              children: ['image', 'audio', 'video', 'code', 'document'].map((className) => ({
+                path: `$/className}`,
+                name: className,
+                component: () => import('@/views/ClassView.vue'),
+              })),
+            }
+          } else {
+            return {}
+          }
+        })(),
       })),
     },
     {
