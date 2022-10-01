@@ -17,7 +17,7 @@ const value = computed({
 const isCheckAll = ref<boolean>(false)
 
 watchEffect(() => {
-  value.value = isCheckAll.value ? data.map((item) => item.id) : []
+  value.value = isCheckAll.value ? data.map(item => item.id) : []
 })
 </script>
 
@@ -27,7 +27,7 @@ watchEffect(() => {
       <thead class="static">
         <tr class="text-left">
           <th>
-            <input type="checkbox" v-model="isCheckAll" />
+            <input type="checkbox" v-model="isCheckAll" class="" />
           </th>
 
           <th v-for="(th, index) in head" :key="index">{{ th.text }}</th>

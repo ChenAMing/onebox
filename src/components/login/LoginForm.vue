@@ -9,7 +9,8 @@ const user = reactive({
 </script>
 
 <template>
-  <div class="h=20 flex flex-col flex-nowrap border border-slate-300 p-10 w-[400px] bg-[#f3f3f3]">
+  <div
+    class="h=20 flex w-[400px] flex-col flex-nowrap border border-slate-300 bg-[#f3f3f3] p-10">
     <LibInput v-model:modelValue="user.act" />
 
     <span class="h-8"></span>
@@ -18,6 +19,6 @@ const user = reactive({
 
     <span class="h-8"></span>
 
-    <button type="button" class="bg-[#0067c0] text-white h-10 rounded-md">登录</button>
+    <button type="button" class="h-10 rounded-md bg-[#0067c0] text-white">登录</button>
   </div>
 </template>

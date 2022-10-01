@@ -3,8 +3,10 @@ import { IconUpload } from '@/icons/head'
 </script>
 
 <template>
-  <span class="flex flex-row items-center cursor-pointer h-8 hover:bg-gray-100 border-2 border-dashed border-gray-300 rounded-sm p-2 mr-2">
+  <span
+    class="mr-2 flex h-8 cursor-pointer flex-row items-center rounded-sm border-2 border-dashed border-gray-300 p-2 hover:bg-gray-100"
+    @click="">
     <IconUpload />
-    <span class="select-none text-sm ml-4">上传</span>
+    <span class="ml-4 select-none text-sm">上传</span>
   </span>
 </template>

@@ -9,14 +9,14 @@ const router = createRouter({
       name: 'home',
       component: HomeView,
       redirect: 'file',
-      children: ['file', 'log', 'starred', 'share', 'recycled', 'settings'].map((name) => ({
+      children: ['file', 'log', 'starred', 'share', 'recycled', 'settings'].map(name => ({
         path: `/${name}`,
         name,
         component: () => import('@/views/MainView.vue'),
         ...(() => {
           if (name === 'file') {
             return {
-              children: ['image', 'audio', 'video', 'code', 'document'].map((className) => ({
+              children: ['image', 'audio', 'video', 'code', 'document'].map(className => ({
                 path: `$/className}`,
                 name: className,
                 component: () => import('@/views/ClassView.vue'),

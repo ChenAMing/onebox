@@ -14,7 +14,7 @@ const emits = defineEmits<{ (event: 'update:modelValue', value: string): void }>
 
 const value = computed({
   get: () => props.modelValue,
-  set: (newValue) => emits('update:modelValue', newValue),
+  set: newValue => emits('update:modelValue', newValue),
 })
 
 function clearValue() {
@@ -24,8 +24,7 @@ function clearValue() {
 
 <template>
   <div
-    class="flex flex-row items-center h-10 border border-[#e5e5e5] rounded-md bg-white shadow shadow-gray-50 border-b-[#868686] overflow-hidden"
-  >
+    class="flex h-10 flex-row items-center overflow-hidden rounded-md border border-[#e5e5e5] border-b-[#868686] bg-white shadow shadow-gray-50">
     <div v-if="$slots.pre">
       <slot name="pre"></slot>
     </div>
@@ -38,9 +37,8 @@ function clearValue() {
       type="text"
       :placeholder="props.placeholder"
       v-model="value"
-      class="h-10 bg-transparent flex-grow outline-none focus:border-b-[3px] border-[#0067c0]"
-      :id="props.id ?? undefined"
-    />
+      class="h-10 flex-grow border-[#0067c0] bg-transparent outline-none focus:border-b-[3px]"
+      :id="props.id ?? undefined" />
 
     <span @click="clearValue" v-if="props.allowClear">
       <IconClear />

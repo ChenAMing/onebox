@@ -12,10 +12,9 @@ const onClick = () => emits('click')
     :class="
       props.forReturn
         ? null
-        : 'bg-black bg-opacity-25  flex flex-col items-center justify-center backdrop-blur-sm'
+        : 'flex flex-col  items-center justify-center bg-black bg-opacity-25 backdrop-blur-sm'
     "
-    @click="onClick"
-  >
+    @click="onClick">
     <slot v-if="props.forReturn"></slot>
   </div>
 </template>
