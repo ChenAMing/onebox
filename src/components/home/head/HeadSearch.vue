@@ -10,7 +10,9 @@ const openSearchPanel = () => (showSearchPanel.value = true)
 
 <template>
   <div>
-    <LibButton @click="" className="text-white bg-blue-500 shadow-md shadow-blue-300 mr-2">
+    <LibButton
+      @click=""
+      className="text-black bg-transparent mr-2 border border-blue-600 shadow-sm shadow-blue-300">
       <template #icon>
         <IconSearch />
       </template>

@@ -9,7 +9,7 @@ const onClick = () => emits('click')
 <template>
   <button
     type="button"
-    class="text-bold flex h-8 flex-row items-center rounded p-3 text-sm font-bold opacity-90 transition hover:opacity-80 active:opacity-100 tracking-widest"
+    class="text-bold flex h-8 flex-row items-center rounded p-3 text-sm font-bold tracking-widest opacity-90 transition hover:opacity-60 active:opacity-100"
     :class="className"
     @click="onClick">
     <span class="mr-3" v-if="$slots.icon">

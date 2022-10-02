@@ -4,7 +4,9 @@ import { IconUpload } from '@/icons/head'
 </script>
 
 <template>
-  <LibButton @click="" className="text-white bg-slate-700 shadow-md shadow-slate-400 mr-2">
+  <LibButton
+    @click=""
+    className="text-black bg-transparent mr-2 border border-blue-600 shadow-sm shadow-blue-300">
     <template #icon>
       <IconUpload />
     </template>
