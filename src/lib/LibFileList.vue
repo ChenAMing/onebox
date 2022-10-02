@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { IconMore, IconSortBy, IconSortPositive, IconSortReversed } from '@/icons/lib'
 import { computed, ref, watchEffect } from 'vue'
 
 const { head, data, modelValue } = defineProps<{
@@ -20,15 +21,56 @@ watchEffect(() => {
   value.value = isCheckAll.value ? data.map(item => item.id) : []
 })
 
-const sortBy = ref()
+const sortByPositive = ref<boolean>(true)
 
-function sort() {}
+const sortBtn = {
+  positive() {
+    // TODO
+    sortByPositive.value = true
+  },
+  reversed() {
+    // TODO
+    sortByPositive.value = false
+  },
+}
+
+const className = `box-border flex w-20 flex-row items-center justify-center border border-blue-300
+                   border-opacity-50 bg-blue-300 bg-opacity-40 opacity-90 transition-all`
+const focusClassName = 'bg-opacity-80 opacity-100'
+
+const showSortByMenu = ref<boolean>(false)
+
+const openSortByMenu = () => (showSortByMenu.value = true)
 </script>
 
 <template>
   <div class="relative flex flex-col">
-    <div class="mb-2 h-10 rounded bg-blue-600 shadow shadow-blue-300">
-      <span></span>
+    <div
+      class="mb-2 flex h-[60px] flex-row rounded bg-blue-600 p-2 shadow shadow-blue-300 brightness-90">
+      <span
+        class="mr-auto flex cursor-pointer flex-row items-center rounded bg-white bg-opacity-30 px-2 opacity-80 transition-all hover:opacity-100"
+        @click="">
+        <IconSortBy class="stroke-white" />
+
+        <span class="ml-2 mr-1 text-sm text-gray-50">排序方式</span>
+
+        <!-- popup menu -->
+        <div></div>
+
+        <IconMore class="stroke-white" />
+      </span>
+      <span
+        class="rounded-l"
+        :class="[className, sortByPositive ? focusClassName : null]"
+        @click="sortBtn.positive">
+        <IconSortPositive class="stroke-white" />
+      </span>
+      <span
+        class="rounded-r"
+        :class="[className, sortByPositive ? null : focusClassName]"
+        @click="sortBtn.reversed">
+        <IconSortReversed class="stroke-white" />
+      </span>
     </div>
 
     <div
