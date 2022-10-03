@@ -49,22 +49,22 @@ const widgetClass = computed(() => {
 <template>
   <div class="relative p-2">
     <span
-      class="inline-block absolute bg-[#0067c0] w-1 h-[32px] rounded-full left-3 transition-all"
+      class="absolute left-3 inline-block h-[32px] w-1 rounded-full bg-[#0067c0] transition-all"
       :class="widgetClass">
     </span>
 
     <span
       v-for="(tab, index) in tabs"
       :key="index"
-      class="cursor-pointer h-10 mb-1 flex flex-row flex-nowrap items-center hover:bg-gray-100 rounded pl-4"
-      :class="route.name === tab.router ? 'bg-gray-100 hover:bg-gray-100' : null"
+      class="mb-1 flex h-10 cursor-pointer flex-row flex-nowrap items-center rounded pl-4 hover:bg-gray-100"
+      :class="route.name === tab.router ? 'bg-gray-100 text-[#0067c0]  hover:bg-gray-100' : null"
       @click="switchTab(tab.router as Tabs)">
       <component
         :is="tab.icon"
         :solid="route.name === tab.router"
         :class="route.name === tab.router ? 'fill-[#0067c0]' : null">
       </component>
-      <span class="text-sm ml-6 flex-grow text-black">
+      <span class="ml-6 flex-grow text-sm">
         {{ tab.text }}
       </span>
     </span>

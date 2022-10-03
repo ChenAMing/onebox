@@ -1,16 +1,16 @@
 <template>
-  <main id="home" class="absolute inset-0 grid bg-gray-50">
-    <div id="logo" class="border-r border-b border-slate-300">
+  <main id="home" class="absolute inset-0 grid">
+    <div id="logo" class="">
       <slot name="logo"></slot>
     </div>
 
-    <div id="nav" class="border-t border-slate-300 sm:border-r">
+    <div id="nav" class="">
       <slot name="nav"></slot>
     </div>
 
     <div
       id="head"
-      class="flex flex-row flex-nowrap items-center justify-end border-b border-slate-300">
+      class="flex flex-row flex-nowrap items-center justify-end">
       <slot name="head"></slot>
     </div>
 

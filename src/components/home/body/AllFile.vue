@@ -12,10 +12,20 @@ const head = [
 ]
 
 const checked = ref([])
+
+const sortBy = [
+  { text: 'A-Z', fn: '' },
+  { text: '日期', fn: '' },
+  { text: '扩展名', fn: '' },
+]
 </script>
 
 <template>
-  <!-- TODO -->
+  <!-- TODO 增加分类 -->
   <!-- <RouterView v-if="false" /> -->
-  <LibFileList :head="head" :data="dir.listOfCurrentDir" v-model:modelValue="checked" />
+  <LibFileList
+    :head="head"
+    :data="dir.listOfCurrentDir"
+    :sortBy="sortBy"
+    v-model:modelValue="checked" />
 </template>

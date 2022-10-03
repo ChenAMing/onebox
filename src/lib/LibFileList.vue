@@ -1,12 +1,13 @@
 <script lang="ts" setup>
 import { IconMore, IconSortBy, IconSortPositive, IconSortReversed } from '@/icons/lib'
-import { LibPopup } from '.';
 import { computed, ref, watchEffect } from 'vue'
 
-const { head, data, modelValue } = defineProps<{
+const { head, data, modelValue, sortBy } = defineProps<{
   modelValue: string[]
   head: { key: string; text: string }[]
   data: { id: string; [propName: string]: string }[]
+  // TODO
+  sortBy: { text: string; fn: any }[]
 }>()
 
 const emits = defineEmits<{ (event: 'update:modelValue', value: string[]): void }>()
@@ -41,25 +42,44 @@ const focusClassName = 'bg-opacity-80 opacity-100'
 
 const showSortByMenu = ref<boolean>(false)
 
-const openSortByMenu = () => (showSortByMenu.value = true)
+const switchSortByMenu = () => (showSortByMenu.value = !showSortByMenu.value)
+
+// TODO
+const usedSortOrder = ''
 </script>
 
 <template>
   <div class="relative flex flex-col">
-    <div
-      class="mb-2 flex h-[60px] flex-row rounded bg-blue-600 p-2 shadow shadow-blue-300 brightness-90">
+    <!-- sort menu -->
+    <div class="mb-2 flex h-[60px] flex-row rounded bg-blue-600 p-2 shadow shadow-blue-300">
       <span
         class="mr-auto flex cursor-pointer flex-row items-center rounded bg-white bg-opacity-30 px-2 opacity-80 transition-all hover:opacity-100"
-        @click="">
+        @click="switchSortByMenu">
         <IconSortBy class="stroke-white" />
 
         <span class="ml-2 mr-1 text-sm text-gray-50">排序方式</span>
 
-        <!-- popup menu -->
-        <IconMore class="stroke-white"/>
-
-        <LibPopup v-show='showSortByMenu' />
+        <IconMore class="stroke-white" />
       </span>
+
+      <!-- popup menu -->
+      <Transition enter-from-class="opacity-0" leave-to-class="opacity-0">
+        <div v-show="showSortByMenu" class="transition">
+          <div class="fixed inset-0 z-10" @click="switchSortByMenu"></div>
+
+          <div
+            class="absolute inset-0 top-2 left-2 z-20 flex h-40 w-[132px] flex-col flex-nowrap rounded bg-white py-1 shadow-lg shadow-gray-300">
+            <span
+              v-for="(order, index) in sortBy"
+              :key="index"
+              class="cursor-default py-2 px-4 hover:bg-gray-100">
+              {{ order.text }}
+            </span>
+          </div>
+        </div>
+      </Transition>
+      <!---------------->
+
       <span
         class="rounded-l"
         :class="[className, sortByPositive ? focusClassName : null]"
