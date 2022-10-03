@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { IconMore, IconSortBy, IconSortPositive, IconSortReversed } from '@/icons/lib'
+import { LibPopup } from '.';
 import { computed, ref, watchEffect } from 'vue'
 
 const { head, data, modelValue } = defineProps<{
@@ -55,9 +56,9 @@ const openSortByMenu = () => (showSortByMenu.value = true)
         <span class="ml-2 mr-1 text-sm text-gray-50">排序方式</span>
 
         <!-- popup menu -->
-        <div></div>
+        <IconMore class="stroke-white"/>
 
-        <IconMore class="stroke-white" />
+        <LibPopup v-show='showSortByMenu' />
       </span>
       <span
         class="rounded-l"
